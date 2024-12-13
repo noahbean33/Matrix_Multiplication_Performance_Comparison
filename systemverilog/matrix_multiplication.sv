@@ -1,3 +1,32 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Company:        Oregon State University
+// Engineer:       Noah Bean
+// 
+// Create Date:    12/13/2024
+// Design Name:    Matrix Multiplication 
+// Module Name:    matrix_multiplication
+// Project Name:   Matrix_Multiplication_SystemVerilog_ECE472_Project
+// Target Devices: Nexys A7-100T
+// Tool Versions:  Vivado 2024.2
+// Description: 
+//   This is a module matrix multiplication. 
+//
+// Dependencies: 
+//   - NA
+//
+// Revision:
+//   Revision 0.01 - File Created
+//   
+// 
+// Additional Comments:
+//   Ensure that the synthesis and simulation libraries are properly configured
+//   in the Vivado project for successful simulation.
+//
+// License: 
+//   MIT
+//////////////////////////////////////////////////////////////////////////////////
+`timescale 1ns/1ns
+
 module matrix_multiplication (
     input logic Clock,             // Clock signal, drives the sequential logic
     input logic reset,             // Active-high reset signal

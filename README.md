@@ -34,10 +34,10 @@ Matrix multiplication is a fundamental algorithm widely used in scientific compu
 ### **Source Files**
 - `python/`: Contains Python scripts for basic and NumPy-based implementations.
 - `c/`: Includes C Program.
-- `verilog/`: Contains the SystemVerilog modules and testbenches for HDL-based implementation.
+- `systemverilog/`: Contains the SystemVerilog modules and testbenches for HDL-based implementation.
 
 ### **Reports**
-- `report.pdf`: Detailed analysis of implementation results, challenges, and lessons learned.
+- `Matrix_Multiplication_Performance_Comparison_ECE_472_Project.pdf`: Detailed analysis of implementation results, challenges, and lessons learned.
 - `results/`: Contains raw data and plots comparing execution times.
 
 ---
@@ -52,36 +52,37 @@ Matrix multiplication is a fundamental algorithm widely used in scientific compu
 ### **2. Steps**
 1. Clone the repository:
 ```bash
-   git clone https://github.com/yourusername/matrix_multiplication_comparison.git
-   cd matrix_multiplication_comparison
+   git clone https://github.com/noahbean33/Matrix_Multiplication_Performance_Comparison.git
+   cd Matrix_Multiplication_Performance_Comparison
 ```
 
    ### **2. Steps**   
 #### **Run Python implementations**:
    ```bash
 cd python
-python3 basic.py
-python3 numpy.py
+python3 matrix_multiplication_numpy.py
+python3 matrix_multiplication_python.py
 ```
 
 #### Run C implementations:
    ```bash
 cd c
-gcc -o basic basic.c
+gcc -o matrix_multiplication matrix_multiplication.c
 ./basic
-gcc -O3 -o optimized optimized.c
+gcc -O3 -o matrix_multiplication matrix_multiplication.c
 ./optimized
    ```
 
 #### Run SystemVerilog implementations:
    ```bash
 cd SystemVerilog
-xrun -sv -timescale 1ns/1ns -access +rw testbench.sv (Cadence Xcelium 23.09)
+xrun -sv -timescale 1ns/1ns -access +rw matrix_multiplier_tb.sv (Cadence Xcelium 23.09)
    ```
 
 # Additional Details
 
-**Assuming Cadence Xcelium 23.09 or similar tools.**
+**Assuming Cadence Xcelium 23.09 on EDA Playground**
+**matrix_multiplication.sv and matrix_multiplication_tb.sv can be set up in a project on Xilinx Vivado**
 
 ## Results
 
@@ -90,9 +91,9 @@ The performance evaluation highlighted the following:
 - **Python (Basic):** Easy to implement but slow for large matrices.
 - **NumPy:** Leveraged optimized C libraries for the fastest performance.
 - **C (Optimized):** Balanced speed and control, suitable for most use cases.
-- **SystemVerilog:** Achieved hardware-level parallelism, demonstrating excellent scalability and speed but with higher complexity.
+- **SystemVerilog:** Demonstrating excellent scalability and speed but with higher complexity.
 
-For detailed graphs and analysis, see `report.pdf` in the repository.
+For detailed graphs and analysis, see `Matrix_Multiplication_Performance_Comparison_ECE_472_Project.pdf` in the repository.
 
 ---
 
@@ -114,7 +115,7 @@ For detailed graphs and analysis, see `report.pdf` in the repository.
 
 ## Contributions
 
-Contributions to enhance the implementations or add new features are welcome! Please create a pull request or open an issue with your suggestions.
+Contributions to enhance the implementations or add new features are welcome!
 
 ---
 

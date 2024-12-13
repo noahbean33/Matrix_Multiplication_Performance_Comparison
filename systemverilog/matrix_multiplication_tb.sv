@@ -1,3 +1,35 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Company:        Oregon State University
+// Engineer:       Noah Bean
+// 
+// Create Date:    12/13/2024
+// Design Name:    Matrix Multiplication Testbench
+// Module Name:    matrix_multiplication_tb
+// Project Name:   Matrix_Multiplication_SystemVerilog_ECE472_Project
+// Target Devices: Nexys A7-100T
+// Tool Versions:  Vivado 2024.2
+// Description: 
+//   This is a testbench for simulating the matrix multiplication module. 
+//   It verifies the correctness of the module's output by comparing it 
+//   to expected values for given input matrices.
+//
+// Dependencies: 
+//   - matrix_multiplication.v (DUT)
+//
+// Revision:
+//   Revision 0.01 - File Created
+//   
+// 
+// Additional Comments:
+//   Ensure that the synthesis and simulation libraries are properly configured
+//   in the Vivado project for successful simulation.
+//
+// License: 
+//   MIT
+//////////////////////////////////////////////////////////////////////////////////
+
+`timescale 1ns/1ns
+
 module matrix_multiplication_tb;
     logic [71:0] A, B;               // Test input matrices A and B (1D representation)
     logic [71:0] C;                  // Output matrix C (1D representation)
@@ -15,8 +47,8 @@ module matrix_multiplication_tb;
         #Clock_period;               // Wait for one clock period
 
         // Define input matrices A and B
-        A = {8'd9, 8'd8, 8'd7, 8'd6, 8'd5, 8'd4, 8'd3, 8'd2, 8'd1}; // Row-major order
-        B = {8'd1, 8'd9, 8'd8, 8'd7, 8'd6, 8'd5, 8'd4, 8'd3, 8'd2};
+        A = {8'd1, 8'd2, 8'd3, 8'd4, 8'd5, 8'd6, 8'd7, 8'd8, 8'd9}; // Row-major order
+        B = {8'd9, 8'd8, 8'd7, 8'd6, 8'd5, 8'd4, 8'd3, 8'd2, 8'd1};
         Enable = 1;                  // Enable matrix multiplication
         wait(done);                  // Wait for the done signal
         #Clock_period;               // Wait for half a clock cycle
@@ -35,7 +67,7 @@ module matrix_multiplication_tb;
     always #(Clock_period / 2) Clock = ~Clock;
 
     // Instantiate the DUT (Device Under Test)
-    matrix_mult dut (
+    matrix_multiplication dut (
         .Clock(Clock),
         .reset(reset),
         .Enable(Enable),
